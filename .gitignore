@@ -3,3 +3,11 @@
 *~
 __*__
 .idea
+.metadata
+bin
+.settings
+.classpath
+.project
+.idea
+.recommenders
+Solution
