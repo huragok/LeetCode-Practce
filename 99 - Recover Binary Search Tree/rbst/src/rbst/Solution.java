@@ -18,36 +18,26 @@ public class Solution {
         	if (curr.left == null) {
         		pre = curr;
         		curr = curr.right;
-        		if (pre != null && curr != null && pre.val > curr.val) {
-        			if (first == null) {
-        				first = pre;
-        			}
-        			second = curr;
-        		}
+        		
         	} else {
-        		pre = curr.left;
-        		while (pre.right != null && pre.right != curr) pre = pre.right;
-        		if (pre.right == null) {
-        			if (pre != null && curr != null && pre.val > curr.val) {
-            			if (first == null) {
-            				first = pre;
-            			}
-            			second = curr;
-            		}
-        			pre.right = curr;
+        		TreeNode p = curr.left;
+        		while (p.right != null && p.right != curr) p = p.right;
+        		if (p.right == null) {
+        			p.right = curr;
         			curr = curr.left;
         		} else {
-        			pre.right = null;
+        			p.right = null;
         			pre = curr;
         			curr = curr.right;
-        			if (pre != null && curr != null && pre.val > curr.val) {
-            			if (first == null) {
-            				first = pre;
-            			}
-            			second = curr;
-            		}
         		}
         	}
+        	
+        	if (pre != null && curr != null && pre.val > curr.val) {
+    			if (first == null) {
+    				first = pre;
+    			}
+    			second = curr;
+    		}
         }
         
         int tmp = first.val;
